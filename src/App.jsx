@@ -1,5 +1,4 @@
 import { createSignal } from 'solid-js';
-//import logo from './logo.svg';
 import styles from './App.module.css';
 import { wordsArray } from '../data.js';
 
@@ -33,8 +32,8 @@ function getRandom(arr, n) {
 const getNextMatchPairs = () => {
   const randomSubList = getRandom(wordsArray, 8);
   const separateList = generateSeparateLists(randomSubList);
-  console.log('sep: ', separateList.engList);
-  console.log('german ', getRandom(separateList.germanList, 8));
+  // console.log('sep: ', separateList.engList);
+  // console.log('german ', getRandom(separateList.germanList, 8));
   return {
     englishWords: separateList.engList,
     germanWords: getRandom(separateList.germanList, 8),
@@ -44,15 +43,14 @@ const getNextMatchPairs = () => {
 function App() {
   const [pairs, setPairs] = createSignal(getNextMatchPairs());
 
+  console.log('pairs: ', pairs());
+
   const onClickNext = () => setPairs(getNextMatchPairs());
 
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        {/* <img src={logo} class={styles.logo} alt="logo" /> */}
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
+        <p>Tap n Learn</p>
         <a
           class={styles.link}
           href="https://github.com/solidjs/solid"
@@ -62,6 +60,22 @@ function App() {
           Learn Solid
         </a>
       </header>
+      <div style={{ display: 'flex' }}>
+        <div>
+          <ul>
+            {pairs()?.englishWords.map((item) => (
+              <li key={item.id + 'eng'}>{item.word}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <ul>
+            {pairs()?.germanWords.map((item) => (
+              <li key={item.id + 'du'}>{item.word}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
