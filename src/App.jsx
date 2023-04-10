@@ -59,23 +59,25 @@ function App() {
         >
           Learn Solid
         </a>
+
+        <div style={{ display: 'flex' }}>
+          <div>
+            <ul>
+              {pairs()?.englishWords.map((item) => (
+                <li key={item.id + 'eng'}>{item.word}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <ul>
+              {pairs()?.germanWords.map((item) => (
+                <li key={item.id + 'du'}>{item.word}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <button onClick={onClickNext}>NExt</button>
       </header>
-      <div style={{ display: 'flex' }}>
-        <div>
-          <ul>
-            {pairs()?.englishWords.map((item) => (
-              <li key={item.id + 'eng'}>{item.word}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <ul>
-            {pairs()?.germanWords.map((item) => (
-              <li key={item.id + 'du'}>{item.word}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </div>
   );
 }
