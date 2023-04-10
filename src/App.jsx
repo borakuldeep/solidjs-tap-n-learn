@@ -36,7 +36,7 @@ const getNextMatchPairs = () => {
   console.log('sep: ', separateList.engList);
   console.log('german ', getRandom(separateList.germanList, 8));
   return {
-    englishWords: eparateList.engList,
+    englishWords: separateList.engList,
     germanWords: getRandom(separateList.germanList, 8),
   };
 };
