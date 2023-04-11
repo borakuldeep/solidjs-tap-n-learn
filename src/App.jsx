@@ -60,7 +60,7 @@ function App() {
           Learn Solid
         </a>
 
-        <div style={{ display: 'flex' }}>
+        <div class={styles.pairs}>
           <div>
             <ul>
               {pairs()?.englishWords.map((item) => (

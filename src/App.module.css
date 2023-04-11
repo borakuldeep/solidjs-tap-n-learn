@@ -23,6 +23,16 @@
   color: #b318f0;
 }
 
+li {
+  margin-top: 30px;
+}
+
+.pairs {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
