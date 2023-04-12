@@ -25,12 +25,41 @@
 
 li {
   margin-top: 30px;
+  list-style-type: none;
+  border: 1px solid lightblue;
+  padding: 0.5rem;
+  border-bottom: 3px solid lightblue;
+  border-radius: 10px;
 }
 
 .pairs {
   display: flex;
   justify-content: space-between;
   width: 60%;
+}
+
+@media screen and (max-width: 480px) {
+  .pairs {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .pairs {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .pairs {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .pairs {
+    width: 30%;
+  }
 }
 
 @keyframes logo-spin {
