@@ -42,6 +42,7 @@ const getNextMatchPairs = () => {
 
 function App() {
   const [pairs, setPairs] = createSignal(getNextMatchPairs());
+  const [matched, setMatched] = createSignal(0);
 
   console.log('pairs: ', pairs());
 
@@ -51,14 +52,7 @@ function App() {
     <div class={styles.App}>
       <header class={styles.header}>
         <p>Tap n Learn</p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
+        <sub>Tap matching pairs</sub>
 
         <div class={styles.pairs}>
           <div>
@@ -76,7 +70,13 @@ function App() {
             </ul>
           </div>
         </div>
-        <button onClick={onClickNext}>NExt</button>
+        <button
+          disabled={matched !== 8}
+          class={matched === 8 ? styles.nxtbtn : styles.inactivebtn}
+          onClick={onClickNext}
+        >
+          Next
+        </button>
       </header>
     </div>
   );
