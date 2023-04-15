@@ -83,7 +83,7 @@ function App() {
 
   return (
     <div class={styles.App}>
-      <sup>1000 German words! by Bora</sup>
+      <sup class={styles.title}>1000 German words! by Bora</sup>
       <header class={styles.header}>
         <p>Tap n Learn</p>
         <sub>Tap matching pairs</sub>
