@@ -7,8 +7,8 @@ const generateSeparateLists = (array) => {
     germanList = [];
   if (!array) return null;
   array.forEach((item) => {
-    engList.push({ word: item.english, id: item.id, list: 'eng' });
-    germanList.push({ word: item.german, id: item.id, list: 'deu' });
+    engList.push({ word: item.english, id: item.id, lang: 'eng' });
+    germanList.push({ word: item.german, id: item.id, lang: 'deu' });
   });
   return {
     engList,
@@ -32,8 +32,6 @@ function getRandom(arr, n) {
 const getNextMatchPairs = () => {
   const randomSubList = getRandom(wordsArray, 8);
   const separateList = generateSeparateLists(randomSubList);
-  //console.log('sep: ', separateList.engList);
-  // console.log('german ', getRandom(separateList.germanList, 8));
   return {
     englishWords: separateList.engList,
     germanWords: getRandom(separateList.germanList, 8),
@@ -47,30 +45,34 @@ function App() {
 
   createEffect(() => console.log(matched(), clickedWord()));
 
-  const onWordClick = (id, list) => {
+  const onWordClick = (id, lang) => {
     if (clickedWord()) {
-      if (clickedWord().id === id && clickedWord().list !== list) {
+      if (clickedWord().id === id && clickedWord().lang !== lang) {
         setMatched([...matched(), id]);
         setClickedWord(null);
       } else if (clickedWord().id !== id) {
-        setClickedWord({ id, list });
+        setClickedWord({ id, lang });
       }
     } else {
-      setClickedWord({ id, list });
+      setClickedWord({ id, lang });
     }
   };
 
   const onClickNext = () => setPairsList(getNextMatchPairs());
 
-  const getItemStyleClass = (id) => {
-    if (matched().includes(id)) {
-      return { ...styles.inactivelist };
-    }
-    if (clickedWord().id === id) {
-      return { ...styles.currentword };
-    }
-    return null;
-  };
+  // const getItemStyleClass = (id, lang) => {
+  //   if (matched().includes(id)) {
+  //     return { ...styles.inactivelist };
+  //   }
+  //   if (
+  //     clickedWord() &&
+  //     clickedWord().id === id &&
+  //     clickedWord().lang === lang
+  //   ) {
+  //     return { ...styles.currentword };
+  //   }
+  //   return null;
+  // };
 
   return (
     <div class={styles.App}>
@@ -85,13 +87,15 @@ function App() {
                 <li
                   key={item.id + 'eng'}
                   class={
-                    clickedWord().id === id
+                    clickedWord() &&
+                    clickedWord().id === item.id &&
+                    clickedWord().lang === item.lang
                       ? styles.currentword
-                      : matched().includes(id)
+                      : matched().includes(item.id)
                       ? styles.inactivelist
                       : null
                   }
-                  onClick={() => onWordClick(item.id, item.list)}
+                  onClick={() => onWordClick(item.id, item.lang)}
                 >
                   {item.word}
                 </li>
@@ -104,9 +108,15 @@ function App() {
                 <li
                   key={item.id + 'du'}
                   class={
-                    matched().includes(item.id) ? styles.inactivelist : null
+                    clickedWord() &&
+                    clickedWord().id === item.id &&
+                    clickedWord().lang === item.lang
+                      ? styles.currentword
+                      : matched().includes(item.id)
+                      ? styles.inactivelist
+                      : null
                   }
-                  onClick={() => onWordClick(item.id, item.list)}
+                  onClick={() => onWordClick(item.id, item.lang)}
                 >
                   {item.word}
                 </li>
