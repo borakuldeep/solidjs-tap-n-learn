@@ -33,6 +33,16 @@ li {
   cursor: pointer;
 }
 
+.inactivelist {
+  cursor: default;
+  color: lightgray;
+  border: none;
+}
+
+.currentword {
+  border: 3px solid #92f83e;
+}
+
 .pairs {
   display: flex;
   justify-content: space-between;
