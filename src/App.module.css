@@ -58,10 +58,11 @@ li {
   padding: 0.5rem 1rem;
   border: 1px solid white;
   border-bottom: 3px solid white;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 100px;
   color: rgb(88, 39, 21);
   margin-top: 2rem;
+  outline: none;
 }
 
 .inactivebtn {
@@ -70,15 +71,21 @@ li {
   padding: 0.5rem 1rem;
   border: 1px solid white;
   border-bottom: 3px solid white;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-top: 2rem;
+  outline: none;
 }
 
-/* @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .pairs {
-    width: 80%;
+    width: 100%;
+    justify-content: center;
   }
-} */
+
+  li {
+    font-size: calc(14px + 2vmin);
+  }
+}
 
 @media screen and (min-width: 480px) {
   .pairs {
@@ -89,12 +96,6 @@ li {
 @media screen and (min-width: 680px) {
   .pairs {
     width: 40%;
-  }
-}
-
-@media screen and (min-width: 850px) {
-  .pairs {
-    width: 30%;
   }
 }
 
