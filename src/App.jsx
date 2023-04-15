@@ -2,6 +2,8 @@ import { createSignal } from 'solid-js';
 import styles from './App.module.css';
 import { wordsArray } from '../data.js';
 
+const WORDS_PER_PAGE = 8;
+
 const generateSeparateLists = (array) => {
   const engList = [],
     germanList = [];
@@ -30,11 +32,11 @@ function getRandom(arr, n) {
   return result;
 }
 const getNextMatchPairs = () => {
-  const randomSubList = getRandom(wordsArray, 6);
+  const randomSubList = getRandom(wordsArray, WORDS_PER_PAGE);
   const separateList = generateSeparateLists(randomSubList);
   return {
     englishWords: separateList.engList,
-    germanWords: getRandom(separateList.germanList, 6),
+    germanWords: getRandom(separateList.germanList, WORDS_PER_PAGE),
   };
 };
 
@@ -78,7 +80,7 @@ function App() {
 
   return (
     <div class={styles.App}>
-      <sup>1000 German words!</sup>
+      <sup>1000 German words! by Bora</sup>
       <header class={styles.header}>
         <p>Tap n Learn</p>
         <sub>Tap matching pairs</sub>
@@ -128,14 +130,17 @@ function App() {
           </div>
         </div>
         <button
-          disabled={matched().length !== 8}
-          class={matched().length === 8 ? styles.nxtbtn : styles.inactivebtn}
+          disabled={matched().length !== WORDS_PER_PAGE}
+          class={
+            matched().length === WORDS_PER_PAGE
+              ? styles.nxtbtn
+              : styles.inactivebtn
+          }
           onClick={onClickNext}
         >
           Next
         </button>
       </header>
-      <sup>KB</sup>
     </div>
   );
 }
