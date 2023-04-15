@@ -1,4 +1,4 @@
-import { createSignal, createEffect } from 'solid-js';
+import { createSignal } from 'solid-js';
 import styles from './App.module.css';
 import { wordsArray } from '../data.js';
 
@@ -43,13 +43,15 @@ function App() {
   const [matched, setMatched] = createSignal([]); //array of macthed words ids
   const [clickedWord, setClickedWord] = createSignal(null); // clicked word id
 
-  createEffect(() => console.log(matched(), clickedWord()));
-
-  const onWordClick = (id, lang) => {
+  const onWordClick = (id, lang, event) => {
     if (clickedWord()) {
       if (clickedWord().id === id && clickedWord().lang !== lang) {
         setMatched([...matched(), id]);
         setClickedWord(null);
+        party.confetti(event, {
+          count: party.variation.range(20, 40),
+          size: party.variation.range(0.8, 1.2),
+        });
       } else if (clickedWord().id !== id) {
         setClickedWord({ id, lang });
       }
@@ -95,7 +97,7 @@ function App() {
                       ? styles.inactivelist
                       : null
                   }
-                  onClick={() => onWordClick(item.id, item.lang)}
+                  onClick={(e) => onWordClick(item.id, item.lang, e)}
                 >
                   {item.word}
                 </li>
@@ -116,7 +118,7 @@ function App() {
                       ? styles.inactivelist
                       : null
                   }
-                  onClick={() => onWordClick(item.id, item.lang)}
+                  onClick={(e) => onWordClick(item.id, item.lang, e)}
                 >
                   {item.word}
                 </li>
