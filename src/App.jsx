@@ -78,6 +78,7 @@ function App() {
 
   return (
     <div class={styles.App}>
+      <sup>1000 German words!</sup>
       <header class={styles.header}>
         <p>Tap n Learn</p>
         <sub>Tap matching pairs</sub>
@@ -134,6 +135,7 @@ function App() {
           Next
         </button>
       </header>
+      <sup>KB</sup>
     </div>
   );
 }
