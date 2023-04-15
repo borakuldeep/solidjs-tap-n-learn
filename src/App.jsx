@@ -30,11 +30,11 @@ function getRandom(arr, n) {
   return result;
 }
 const getNextMatchPairs = () => {
-  const randomSubList = getRandom(wordsArray, 8);
+  const randomSubList = getRandom(wordsArray, 6);
   const separateList = generateSeparateLists(randomSubList);
   return {
     englishWords: separateList.engList,
-    germanWords: getRandom(separateList.germanList, 8),
+    germanWords: getRandom(separateList.germanList, 6),
   };
 };
 
