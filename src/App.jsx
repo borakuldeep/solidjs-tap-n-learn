@@ -62,7 +62,10 @@ function App() {
     }
   };
 
-  const onClickNext = () => setPairsList(getNextMatchPairs());
+  const onClickNext = () => {
+    setMatched([]);
+    setPairsList(getNextMatchPairs());
+  };
 
   // const getItemStyleClass = (id, lang) => {
   //   if (matched().includes(id)) {
