@@ -46,6 +46,7 @@ li {
   display: flex;
   justify-content: space-between;
   width: 70%;
+  align-items: center;
 }
 
 .nxtbtn {
@@ -69,15 +70,15 @@ li {
   margin-top: 2rem;
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .pairs {
-    width: 75%;
+    width: 80%;
   }
-}
+} */
 
 @media screen and (min-width: 480px) {
   .pairs {
-    width: 60%;
+    width: 65%;
   }
 }
 

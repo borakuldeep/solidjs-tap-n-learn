@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js';
 import styles from './App.module.css';
 import { wordsArray } from '../data.js';
 
-const WORDS_PER_PAGE = 8;
+const WORDS_PER_PAGE = 6;
 
 const generateSeparateLists = (array) => {
   const engList = [],
