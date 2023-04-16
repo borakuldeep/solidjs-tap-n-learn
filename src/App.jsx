@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 import styles from './App.module.css';
-import { wordsArray } from '../data.js';
+import { wordsArray } from '../newdata.js';
 
 const WORDS_PER_PAGE = 6;
 
@@ -93,9 +93,9 @@ function App() {
         <div class={styles.pairs}>
           <div>
             <ul>
-              {pairsList()?.englishWords.map((item) => (
+              {pairsList()?.germanWords.map((item) => (
                 <li
-                  key={item.id + 'eng'}
+                  key={item.id + 'du'}
                   class={
                     clickedWord() &&
                     clickedWord().id === item.id &&
@@ -114,9 +114,9 @@ function App() {
           </div>
           <div>
             <ul>
-              {pairsList()?.germanWords.map((item) => (
+              {pairsList()?.englishWords.map((item) => (
                 <li
-                  key={item.id + 'du'}
+                  key={item.id + 'eng'}
                   class={
                     clickedWord() &&
                     clickedWord().id === item.id &&

@@ -5,7 +5,7 @@ const createWordObjects = () => {
     readline = require('readline');
 
   let rd = readline.createInterface({
-    input: fs.createReadStream('./data.txt'),
+    input: fs.createReadStream('./newData.txt'),
     output: false,
     console: false,
   });
@@ -14,18 +14,21 @@ const createWordObjects = () => {
   let count = 0;
 
   rd.on('line', function (line) {
-    const lineArray = line.split('\t');
+    const lineArray = line.split(' ');
 
     objArray.push({
-      german: lineArray[0],
-      english: lineArray[1],
+      german: lineArray[1],
+      english: lineArray[2],
       id: count++,
     });
   });
 
   rd.on('close', function () {
-    fs.writeFileSync('./data.js', `array = ${JSON.stringify(objArray)}`);
+    fs.writeFileSync(
+      './newdata.js',
+      `export const wordsArray = ${JSON.stringify(objArray)}`
+    );
   });
 };
 
-//createWordObjects();
+createWordObjects();
