@@ -7,8 +7,8 @@ body {
 }
 
 .title {
-  background-color: rgb(96, 240, 248);
-  color:black;
+  background-color: rgb(16, 0, 98);
+  color: rgb(96, 240, 248);
   display: block;
   width: auto;
   padding: 5px;
@@ -74,8 +74,8 @@ li {
 }
 
 .inactivebtn {
-  background: lightgray;
-  border-color: lightgray;
+  background: gray;
+  border-color: gray;
   width: 100px;
   padding: 0.5rem 1rem;
   border-radius: 12px;
