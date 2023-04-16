@@ -7,9 +7,11 @@ body {
 }
 
 .title {
-  background-color: white;
+  background-color: rgb(96, 240, 248);
+  color:black;
   display: block;
   width: auto;
+  padding: 5px;
 }
 
 .header {
