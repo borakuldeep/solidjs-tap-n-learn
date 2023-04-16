@@ -85,9 +85,9 @@ function App() {
 
   return (
     <div class={styles.App}>
-      <sup class={styles.title}>1000 German words! by Bora</sup>
+      <sup class={styles.title}>1000 German words!</sup>
       <header class={styles.header}>
-        <p>Tap n Learn</p>
+        <p title="App by Kuldeep Bora">Tap n Learn</p>
         <sub>Tap matching pairs</sub>
 
         <div class={styles.pairs}>
