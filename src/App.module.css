@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #282c34;
+  background-color: rgb(16, 0, 48);
 }
 
 .title {
@@ -13,12 +13,12 @@ body {
 }
 
 .header {
-  background-color: #282c34;
+  background-color: rgb(16, 0, 48);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(96, 240, 248);
   margin-top: 2rem;
 }
 
@@ -34,6 +34,7 @@ li {
   border-bottom: 3px solid lightblue;
   border-radius: 10px;
   cursor: pointer;
+  color: white;
 }
 
 .inactivelist {
@@ -54,13 +55,14 @@ li {
 }
 
 .nxtbtn {
-  background: lightcoral;
+  background: rgb(240, 80, 248);
   padding: 0.5rem 1rem;
-  border: 1px solid white;
-  border-bottom: 3px solid white;
   border-radius: 12px;
   width: 100px;
-  color: rgb(88, 39, 21);
+  color: black;
+  font-weight: 500;
+  line-height: 1.75;
+  font-family: Gotham, helvetica, arial, sans-serif;
   margin-top: 2rem;
   outline: none;
   margin-bottom: 2rem;
@@ -70,12 +72,13 @@ li {
   background: lightgray;
   width: 100px;
   padding: 0.5rem 1rem;
-  border: 1px solid white;
-  border-bottom: 3px solid white;
   border-radius: 12px;
   margin-top: 2rem;
   outline: none;
   margin-bottom: 2rem;
+  font-weight: 500;
+  line-height: 1.75;
+  font-family: Gotham, helvetica, arial, sans-serif;
 }
 
 @media screen and (max-width: 480px) {
