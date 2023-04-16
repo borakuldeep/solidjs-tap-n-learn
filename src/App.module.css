@@ -58,6 +58,7 @@ li {
   background: rgb(240, 80, 248);
   padding: 0.5rem 1rem;
   border-radius: 12px;
+  border-color: rgb(240, 80, 248);
   width: 100px;
   color: black;
   font-weight: 500;
@@ -66,10 +67,13 @@ li {
   margin-top: 2rem;
   outline: none;
   margin-bottom: 2rem;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .inactivebtn {
   background: lightgray;
+  border-color: lightgray;
   width: 100px;
   padding: 0.5rem 1rem;
   border-radius: 12px;
@@ -79,6 +83,7 @@ li {
   font-weight: 500;
   line-height: 1.75;
   font-family: Gotham, helvetica, arial, sans-serif;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 480px) {

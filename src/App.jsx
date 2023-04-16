@@ -46,19 +46,21 @@ function App() {
   const [clickedWord, setClickedWord] = createSignal(null); // clicked word id
 
   const onWordClick = (id, lang, event) => {
-    if (clickedWord()) {
-      if (clickedWord().id === id && clickedWord().lang !== lang) {
-        setMatched([...matched(), id]);
-        setClickedWord(null);
-        party.confetti(event, {
-          count: party.variation.range(20, 40),
-          size: party.variation.range(0.8, 1.2),
-        });
-      } else if (clickedWord().id !== id) {
+    if (matched().length < WORDS_PER_PAGE) {
+      if (clickedWord()) {
+        if (clickedWord().id === id && clickedWord().lang !== lang) {
+          setMatched([...matched(), id]);
+          setClickedWord(null);
+          party.confetti(event, {
+            count: party.variation.range(20, 40),
+            size: party.variation.range(0.8, 1.2),
+          });
+        } else if (clickedWord().id !== id) {
+          setClickedWord({ id, lang });
+        }
+      } else {
         setClickedWord({ id, lang });
       }
-    } else {
-      setClickedWord({ id, lang });
     }
   };
 
