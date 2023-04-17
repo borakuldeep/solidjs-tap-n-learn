@@ -1,4 +1,5 @@
 import { createSignal } from 'solid-js';
+import party from 'party-js';
 import styles from './App.module.css';
 import { wordsArray } from '../newdata.js';
 
